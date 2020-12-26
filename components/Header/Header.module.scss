@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+@media screen and (min-width: $desktopBreakpoint) {
+  .headerContainer {
+    display: flex;
+    justify-content: space-between;
+    height: 85px;
+    align-items: center;
+
+    .leftSection {
+      .logo {
+        color: $primaryColor;
+        font-size: 25px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+
+    .rightSection {
+      display: flex;
+
+      .headerButton {
+        margin: 0 25px 0 0;
+      }
+    }
+  }
+}
