@@ -9,7 +9,13 @@ const Header = ({ content }) => (
     </div>
     <div className={styles.rightSection}>
       {content.map((item) => (
-        <Button key={item.id} className={styles.headerButton}>{item.title}</Button>
+        <Button
+          key={item.id}
+          className={styles.headerButton}
+          filled={item.filled}
+        >
+          {item.title}
+        </Button>
       ))}
     </div>
   </header>
