@@ -1,13 +1,21 @@
 /* eslint-diasble */
 import '../styles/app.scss';
+import Head from 'next/head';
 import Layout from '../components/Layout';
 import { getMenuItems } from '../lib/services/homepage.service';
 
 function App({ Component, pageProps }) {
   return (
-    <Layout content={pageProps?.menuItems}>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <Head>
+        <title>Persquad</title>
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1" />
+        <meta property="og:title" content="Persquad" key="title" />
+      </Head>
+      <Layout content={pageProps?.menuItems}>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   );
 }
 
