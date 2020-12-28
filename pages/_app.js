@@ -12,11 +12,11 @@ function App({ Component, pageProps }) {
 }
 
 App.getInitialProps = async () => {
-  const { menuItems } = await getMenuItems();
+  const response = await getMenuItems();
 
   return {
     pageProps: {
-      menuItems,
+      menuItems: response.menuItems,
     },
   };
 };
