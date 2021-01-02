@@ -108,3 +108,5 @@ dist
 
 #Prettier file
 .prettierrc
+
+.vscode
