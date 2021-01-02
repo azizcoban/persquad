@@ -1,0 +1,65 @@
+@import '../../../styles/variables';
+
+.inputWrapper {
+  position: relative;
+
+  .input {
+    font-size: 1.2rem;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 1rem 0.7rem;
+    color: #000;
+    transition: 0.1s ease-out;
+    width: 100%;
+
+    &:focus {
+      border: 1px solid $secondaryColor;
+    }
+
+    &:focus + label {
+      color: $secondaryColor;
+      top: 0;
+      transform: translateY(-50%) scale(0.9);
+    }
+
+    &:not(:placeholder-shown) + label {
+      top: 0;
+      transform: translateY(-50%) scale(0.9);
+    }
+
+    &.hasError {
+      border-color: $errorColor;
+    }
+  }
+
+  .label {
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 300;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: gray;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: 0.1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+  }
+
+  .eyeIcon {
+    position: absolute;
+    background-image: url('../../../public/img/icn-eye-gray@2x.png');
+    width: 26px;
+    height: 17px;
+    background-size: 26px 17px;
+    border: none;
+    background-repeat: no-repeat;
+    top: 33%;
+    right: 5%;
+    background-color: transparent;
+    outline: none;
+  }
+}
