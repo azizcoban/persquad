@@ -1,20 +1,20 @@
-import Head from 'next/head';
+import PageHeader from '../components/PageHeader';
+import { getLandingPage } from '../lib/services/homepage.service';
 
-export default function Home() {
+export default function Home({ header }) {
   return (
     <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <PageHeader content={header} />
     </div>
   );
 }
 
-export function getStaticProps() {
+export async function getStaticProps() {
+  const { header } = await getLandingPage();
+
   return {
     props: {
-
+      header: header || null,
     },
   };
 }
