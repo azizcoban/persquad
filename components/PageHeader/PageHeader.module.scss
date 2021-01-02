@@ -1,0 +1,22 @@
+@import '../../styles/variables';
+
+.pageHeaderWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0 0 0;
+
+  .pageHeaderTitle {
+    color: $primaryColor;
+    font-weight: 500;
+    font-size: 5em;
+    margin: 0 0 10px 0;
+  }
+
+  .pageHeaderDesc {
+    color: $primaryColor;
+    opacity: 0.5;
+    font-size: 2em;
+    text-align: center;
+  }
+}

@@ -9,6 +9,7 @@ function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Persquad</title>
+        <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1" />
         <meta property="og:title" content="Persquad" key="title" />
       </Head>
