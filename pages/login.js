@@ -17,7 +17,6 @@ const Login = () => {
         <Input className={styles.inputGroup} name="password" label="Password" inputRef={register} isPassword />
         <input className={clsx('submit-input', styles.submit)} type="submit" value="Giriş Yap" />
       </form>
-
     </div>
   );
 };
