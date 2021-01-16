@@ -23,6 +23,17 @@ function App({ Component, pageProps }) {
 App.getInitialProps = async () => {
   const response = await getMenuItems();
 
+  // const pusher = new Pusher({
+  //   appId: process.env.NEXT_PUBLIC_PUSHER_APP_ID,
+  //   key: process.env.NEXT_PUBLIC_PUSHER_APP_KEY,
+  //   secret: process.env.PUSHER_SECRET_KEY,
+  //   cluster: process.env.NEXT_PUBLIC_PUSHER_CLUSTER,
+  // });
+
+  // pusher.trigger('my-channel', 'my-event', {
+  //   message: 'hello world',
+  // });
+
   return {
     pageProps: {
       menuItems: response.menuItems,
