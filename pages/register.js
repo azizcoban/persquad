@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import { useForm } from 'react-hook-form';
-import { setCookie } from 'nookies';
 import { useRouter } from 'next/router';
 import Input from '../components/ui/Input';
 import styles from '../styles/pages/Register.module.scss';
@@ -22,10 +21,8 @@ const Register = () => {
       userData.role = role;
       userData.username = data.name;
       const res = await registerCustomer(userData);
-      setCookie(null, 'userToken', res.jwt, {
-        maxAge: process.env.NEXT_PUBLIC_COOKIE_LIFETIME,
-        path: '/',
-      });
+      console.log(res);
+
       router.push('/');
     } catch (err) {
       console.log(err.message);

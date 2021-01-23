@@ -1,13 +1,21 @@
 import { useForm } from 'react-hook-form';
 import clsx from 'clsx';
+import { signIn } from 'next-auth/client';
 import Input from '../components/ui/Input';
 import styles from '../styles/pages/Login.module.scss';
+import { connectToDB } from '../db/connect';
+import { getUserByEmail } from '../db/user';
 
-const Login = () => {
+// eslint-disable-next-line
+const Login = ({ csrfToken }) => {
   const {
     register, handleSubmit,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    signIn('credentials', data);
+  };
 
   return (
     <div className={clsx('main-content', styles.loginWrapper)}>
@@ -21,7 +29,12 @@ const Login = () => {
   );
 };
 
-export function getServerSideProps() {
+export async function getServerSideProps() {
+  const { db } = await connectToDB();
+  const user = await getUserByEmail(db, 'herikel@erikelhukuk.com');
+
+  console.log(user);
+
   return {
     props: {
 
