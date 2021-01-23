@@ -7,7 +7,7 @@ export default function Home({ header }) {
   const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_APP_KEY, {
     cluster: process.env.NEXT_PUBLIC_PUSHER_CLUSTER,
     forceTLS: true,
-    authEndpoint: 'http://localhost:3000/api/auth',
+    authEndpoint: 'http://localhost:3000/api/pusher',
   });
 
   useEffect(() => {
