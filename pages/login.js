@@ -3,17 +3,14 @@ import clsx from 'clsx';
 import { signIn } from 'next-auth/client';
 import Input from '../components/ui/Input';
 import styles from '../styles/pages/Login.module.scss';
-import { connectToDB } from '../db/connect';
-import { getUserByEmail } from '../db/user';
 
 // eslint-disable-next-line
-const Login = ({ csrfToken }) => {
+const Login = () => {
   const {
     register, handleSubmit,
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     signIn('credentials', data);
   };
 
@@ -30,11 +27,6 @@ const Login = ({ csrfToken }) => {
 };
 
 export async function getServerSideProps() {
-  const { db } = await connectToDB();
-  const user = await getUserByEmail(db, 'herikel@erikelhukuk.com');
-
-  console.log(user);
-
   return {
     props: {
 
