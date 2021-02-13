@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-// import { useSession } from 'next-auth/client';
+import { useSession, signOut } from 'next-auth/client';
 import styles from './Header.module.scss';
 import Button from '../ui/Button';
 
 const Header = ({ content }) => {
-  // const [session, loading] = useSession();
-  console.log(2);
+  // eslint-disable-next-line
+  const [session, loading] = useSession();
 
   return (
     <header className={clsx('main-content', styles.headerContainer)}>
@@ -16,7 +16,7 @@ const Header = ({ content }) => {
         </Link>
       </div>
       <div className={styles.rightSection}>
-        {content.map((item) => (
+        {!session ? content.map((item) => (
           <Link href={item.hyperlink} as={item.hyperlink} key={item.id}>
             <Button
               key={item.id}
@@ -26,7 +26,20 @@ const Header = ({ content }) => {
               {item.title}
             </Button>
           </Link>
-        ))}
+        )) : (
+          <>
+            <Link href="/teams/portal" as="/teams/portal">
+              <Button className={styles.headerButton} filled>
+                Takımları Gör
+              </Button>
+            </Link>
+            <Link href="/teams/portal" as="/teams/portal">
+              <Button className={styles.headerButton} onClick={signOut}>
+                Çıkış Yap
+              </Button>
+            </Link>
+          </>
+        )}
       </div>
     </header>
   );
