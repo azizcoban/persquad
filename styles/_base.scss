@@ -33,4 +33,8 @@ span {
 .main-content {
   max-width: 1150px;
   width: 100%;
+
+  &.center {
+    margin: 0 auto;
+  }
 }
