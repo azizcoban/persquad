@@ -1,6 +1,5 @@
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
-
 import { loginCMSUser } from '../../../lib/services/auth.service';
 
 const options = {
@@ -13,7 +12,9 @@ const options = {
           password: credentials.password,
         });
 
-        console.log(user);
+        // eslint-disable-next-line
+        const isTrueSet = (credentials.isNewUser == 'true');
+        user.user.isNewUser = isTrueSet;
 
         if (user) {
           // Any object returned will be saved in `user` property of the JWT

@@ -33,8 +33,9 @@ const Register = () => {
       signIn('credentials', {
         username: data.email,
         password: data.password,
+        isNewUser: true,
       });
-      // router.push('/teams/portal');
+      router.push('/teams/portal');
     } catch (err) {
       console.log(err.message);
     }
