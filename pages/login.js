@@ -23,7 +23,8 @@ const Login = () => {
   }, [session, loading]);
 
   const onSubmit = async (data) => {
-    signIn('credentials', data);
+    const loginData = { ...data, isNewUser: false };
+    signIn('credentials', loginData);
   };
 
   return (
